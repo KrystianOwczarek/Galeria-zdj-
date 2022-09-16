@@ -52,17 +52,38 @@ h1
 
 /*zdjęcia*/
 
-img
+.column img
 {
 	width: 100%;
 	transition: all .4s ease-in-out;
 	cursor: pointer;
 }
 
-img:hover
+.column img:hover
 {
 	transform: scale(1.1,1.1);
 }
+
+/*przycisk zamykający podgląd*/
+.exit
+{
+	display: none;
+	position: fixed;
+	top: 4%;
+	left: 96%;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+	color: #f4f0e6;
+	opacity: 0.5;
+}
+
+.exit:hover
+{
+	opacity: 1;
+}
+
 
 /*podgląd zdjęć po naciśnięciu*/
 
@@ -76,25 +97,44 @@ img:hover
 	height: 100vh;
 	z-index: -1;
 	background: rgba(0,0,0,0.5);
+	backdrop-filter: blur(4px);
 }
 
-button
+.bigPhoto
+{
+	width: 60%; 
+	height: auto; 
+	cursor: auto;
+}
+
+/*przyciski odpowiadające za przełączanie zdjęć*/
+.next
 {
 	display: none;
 	position: fixed;
-	top: 4%;
-	left: 96%;
-	border: none;
-	background: transparent;
+	top: 50vh;
+	left: 76vw;
 	cursor: pointer;
 	transition: all .2s ease-in-out;
 	color: #f4f0e6;
+	opacity: 0.5;
 }
 
-button:hover
+.back
 {
-	filter: brightness(75%);
+	display: none;
+	position: fixed;
+	top: 50vh;
+	left: 20vw;
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+	color: #f4f0e6;
+	opacity: 0.5;
 }
+
+
+.next:hover{ opacity: 1; }
+.back:hover{ opacity: 1; }
 
 @media(max-width: 800px)
 {
@@ -103,6 +143,8 @@ button:hover
 		flex: 50%;
 		max-width: 50vw;
 	}
+
+	.bigPhoto { width: 70%; }
 }
 
 @media(max-width: 600px)
