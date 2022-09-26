@@ -12,18 +12,6 @@ function start()
     let currentIndex;
     let windowWidth = window.innerWidth;
 
-    setTimeout('start()',100);
-    //pętla dzięki której funkcje są wykonywane dla każdego zdjęcia z osobna
-    if(windowWidth<=600)
-    {
-        //alert('nothing');
-        imgs.forEach((img, index) => {
-            //funkcja dodająca możliwość podglądu po naciśnięciu na zdjęcie
-            img.addEventListener("click",(e) => {
-                bigPicture.classList.remove('bigPicture');
-            });
-        });
-    }else{
         imgs.forEach((img, index) => {
             //funkcja dodająca możliwość podglądu po naciśnięciu na zdjęcie
             img.addEventListener("click",(e) => {
@@ -34,7 +22,6 @@ function start()
                 currentIndex = index;
             });
         });
-    }
 
     next.addEventListener('click',() => {
         //jeśli index jest równy indexowi ostatniego obrazka
@@ -69,29 +56,10 @@ function start()
     //funkcja uruchamiająca podgląd zdjęć
     function previewPhoto()
     {
-        bigPicture.style.cssText = `
-            display: flex; 
-	        justify-content: center; 
-	        align-items: center;
-            z-index: 1;
-            position: fixed;
-        `;
-
-        next.style.cssText = `
-            display: flex;
-            z-index: 1;
-        `;
-
-        back.style.cssText = `
-            display: flex;
-            z-index: 1;
-        `;
-
-        body.style.cssText = `
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        `;
+        bigPicture.classList.toggle('visible');
+        next.classList.toggle('visible');
+        back.classList.toggle('visible');
+        body.classList.toggle('visible');
     }
 
     //funkcja zamykająca podgląd
@@ -104,20 +72,11 @@ function start()
 
         exit.addEventListener('click',() => {
             
-            body.style.cssText = ` overflow: visible; `;
-
-            bigPicture.style.cssText = `
-                display: none; 
-                justify-content: center; 
-                align-items: center;
-                z-index: -1;
-            `;
-
+            body.classList.remove('visible');
+            bigPicture.classList.remove('visible');
             exit.style.cssText = ` display: none; `;
-
-            next.style.cssText = ` display: none; `;
-
-            back.style.cssText = ` display: none; `;
+            next.classList.remove('visible');
+            back.classList.remove('visible');
         });
     }
 }
