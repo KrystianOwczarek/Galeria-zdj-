@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 body
 {
 	background-color: #f4f0e6;
@@ -12,23 +19,33 @@ body.visible
 
 *
 {
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 	font-size: 20px;
 }
 
 /*rozmieszczenie zdjęć na stronie*/
 .flex-container
 {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
 }
 
 /*nagłówek*/
 header
 {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	width: 100vw;
 	height: 10vh;
 	padding: 10px;
@@ -55,6 +72,8 @@ h1
 .column img
 {
 	width: 100%;
+	-webkit-transition: all .4s ease-in-out;
+	-o-transition: all .4s ease-in-out;
 	transition: all .4s ease-in-out;
 	margin-top: 8px;
 	vertical-align: middle;
@@ -62,7 +81,9 @@ h1
 
 .column img:hover
 {
-	transform: scale(1.1,1.1);
+	-webkit-transform: scale(1.1,1.1);
+	    -ms-transform: scale(1.1,1.1);
+	        transform: scale(1.1,1.1);
 	cursor: pointer;
 }
 
@@ -74,9 +95,15 @@ h1
 
 .bigPicture.visible
 {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex; 
-	justify-content: center; 
-	align-items: center;
+	-webkit-box-pack: center; 
+	    -ms-flex-pack: center; 
+	        justify-content: center; 
+	-webkit-box-align: center; 
+	    -ms-flex-align: center; 
+	        align-items: center;
 	position: fixed;
 	width: 100vw;
 	height: 100vh;
@@ -84,7 +111,8 @@ h1
 	padding: 0;
 	z-index: 1;
 	background: rgba(0,0,0,0.5);
-	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	        backdrop-filter: blur(4px);
 }
 
 /*zdjęcie po kliknięciu*/
@@ -105,6 +133,8 @@ h1
 	border: none;
 	background: transparent;
 	cursor: pointer;
+	-webkit-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;
 	color: #f4f0e6;
 	opacity: 0.5;
@@ -123,11 +153,15 @@ h1
 
 .next.visible
 {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	position: absolute;
 	top: 49vh;
 	left: 76vw;
 	cursor: pointer;
+	-webkit-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;
 	color: #f4f0e6;
 	opacity: 0.5;
@@ -144,11 +178,15 @@ h1
 
 .back.visible
 {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	position: absolute;
 	top: 49vh;
 	left: 20vw;
 	cursor: pointer;
+	-webkit-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;
 	color: #f4f0e6;
 	opacity: 0.5;
@@ -185,7 +223,9 @@ h1
 {
 	.column
 	{
-		flex: 50%;
+		-webkit-box-flex: 50%;
+		    -ms-flex: 50%;
+		        flex: 50%;
 		max-width: 50%;
 	}
 	.exit { left: 92%; }
@@ -198,7 +238,9 @@ h1
 {
 	.column
 	{
-		flex: 50%;
+		-webkit-box-flex: 50%;
+		    -ms-flex: 50%;
+		        flex: 50%;
 		max-width: 50%;
 	}
 	.next.visible { left: 75vw;}
@@ -210,12 +252,14 @@ h1
 {
 	.column
 	{
-		flex: 100%;
+		-webkit-box-flex: 100%;
+		    -ms-flex: 100%;
+		        flex: 100%;
 		max-width: 100%;
 	}
 
 	.bigPicture.visible { display: none; }
 	body.visible { margin: 8px; overflow: visible; }
-	.column img:hover { transform: scale(1,1); cursor: default; }
+	.column img:hover { -webkit-transform: scale(1,1); -ms-transform: scale(1,1); transform: scale(1,1); cursor: default; }
 
 }
